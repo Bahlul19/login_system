@@ -2,17 +2,39 @@
 
 include('inc/header.php');
 include ('lib/User.php');
-$user = new USER();
+
+$user = new User();
 
 ?>
 <!--Header Part-->
-            
+<?php
+
+
+$loginMsg = Session::get("loginMsg");
+if(isset($loginMsg))
+{
+    echo $loginMsg;
+}
+
+?>            
             
             
           <!-- Using panel class-->
             <div class="panel panel-default">    
                 <div class="panel-heading">
-                    <h2>User List<span class="pull-right"><strong>Welcome</strong>Delowar</span></h2>
+                    <h2>User List<span class="pull-right"><strong>Welcome! </strong>
+                        
+                            <?php
+                            
+                           $name = Session::get("name");
+                            if(isset($name))
+                            {
+                                echo $name;
+                            }
+                            
+                            ?>
+                        
+                        </span></h2>
                 </div>
                
                 <div  class="panel-body">
